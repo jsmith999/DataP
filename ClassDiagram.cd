@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataPath.Generators.BaseGenerator">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBEAAIAAAAAAAgIBAQAgAAQCAAAAAAAAAEAAAEAAAAA=</HashCode>
+      <FileName>Generators\BaseGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DataPath.Generators.CodeGen">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAgABBAAABAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Generators\CodeGen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataPath.Generators.CommonDecl">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="DataPath.Generators.CommonDecl.Attributes">
+        <TypeIdentifier>
+          <NewMemberFileName>Generators\CommonDecl.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAABAgAAAQAAAAAAAAIAABAAAEAAAAAQIAA=</HashCode>
+      <FileName>Generators\CommonDecl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataPath.Generators.DalGenerator">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Generators\DalGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataPath.Generators.TableGenerator">
+    <Position X="6.75" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="DataPath.Generators.TableGenerator.Columns">
+        <TypeIdentifier>
+          <NewMemberFileName>Generators\TableGenerator.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAgABBAAAAAAAAAAAAgAAAEAQAAAAAAA=</HashCode>
+      <FileName>Generators\TableGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataPath.Generators.UIGenerator">
+    <Position X="4.75" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgABAAAABAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Generators\UIGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataPath.Program">
+    <Position X="10.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataPath.SheetParser">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAIAAACAACAAACQAAAAAAAAAAgAAAAEAAAEA=</HashCode>
+      <FileName>SheetParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Nicolae, Florin</Author>
+  <LastAuthor>Administrator</LastAuthor>
+  <Created>2016-11-02T21:07:59Z</Created>
+  <LastSaved>2017-05-20T15:17:00Z</LastSaved>
+  <Company>CGI</Company>
+  <Version>14.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>10425</WindowHeight>
+  <WindowWidth>20730</WindowWidth>
+  <WindowTopX>120</WindowTopX>
+  <WindowTopY>255</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Clients">
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="13" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="57.75"/>
+   <Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="75.75"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">common</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">table</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">dal</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">ui</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">{type}</Data></Cell>
+    <Cell><Data ss:Type="String">{size}</Data></Cell>
+    <Cell><Data ss:Type="String">{null}</Data></Cell>
+    <Cell><Data ss:Type="String">{FK}</Data></Cell>
+    <Cell><Data ss:Type="String">{PK}</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">clients</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">DAL\Client</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">UI\Client</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">int</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">id</Data></Cell>
+    <Cell><Data ss:Type="String">autoincrement</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">id</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">name</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=RC[-2]"><Data ss:Type="String">Name</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">street_no</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">StreetNo</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=RC[-2]"><Data ss:Type="String">StreetNo</Data></Cell>
+    <Cell><Data ss:Type="String">Street No</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">street1</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Street1</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=RC[-2]"><Data ss:Type="String">Street1</Data></Cell>
+    <Cell><Data ss:Type="String">Street line1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="String">null</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">street2</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Street2</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=RC[-2]"><Data ss:Type="String">Street2</Data></Cell>
+    <Cell><Data ss:Type="String">Street line2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">city</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">City</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=RC[-2]"><Data ss:Type="String">City</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">province</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Province</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=RC[-2]"><Data ss:Type="String">Province</Data></Cell>
+    <Cell><Data ss:Type="String">Province / State</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">country</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Country</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=RC[-2]"><Data ss:Type="String">Country</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">postalcode</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">PostalCode</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=RC[-2]"><Data ss:Type="String">PostalCode</Data></Cell>
+    <Cell><Data ss:Type="String">Postal Code / Zip</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DateTime</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">dob</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">DOB</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=RC[-2]"><Data ss:Type="String">DOB</Data></Cell>
+    <Cell><Data ss:Type="String">Date of birth</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">int</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Employee</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">contact</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Contact</Data></Cell>
+    <Cell ss:Index="12" ss:Formula="=RC[-2]"><Data ss:Type="String">Contact</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>4</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Personal">
+  <Table ss:ExpandedColumnCount="12" ss:ExpandedRowCount="14" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">common</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">table</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">dal</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">ui</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">{type}</Data></Cell>
+    <Cell><Data ss:Type="String">{size}</Data></Cell>
+    <Cell><Data ss:Type="String">{null}</Data></Cell>
+    <Cell><Data ss:Type="String">{FK}</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">employees</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">DAL\Employee</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">UI\Employee</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">int</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">id</Data></Cell>
+    <Cell><Data ss:Type="String">autoincrement</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Id</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">name</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:Index="11" ss:Formula="=RC[-2]"><Data ss:Type="String">Name</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">street_no</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">StreetNo</Data></Cell>
+    <Cell ss:Index="11" ss:Formula="=RC[-2]"><Data ss:Type="String">StreetNo</Data></Cell>
+    <Cell><Data ss:Type="String">Street No</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">street1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Street1</Data></Cell>
+    <Cell ss:Index="11" ss:Formula="=RC[-2]"><Data ss:Type="String">Street1</Data></Cell>
+    <Cell><Data ss:Type="String">Street line1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">street2</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Street2</Data></Cell>
+    <Cell ss:Index="11" ss:Formula="=RC[-2]"><Data ss:Type="String">Street2</Data></Cell>
+    <Cell><Data ss:Type="String">Street line2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">city</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">City</Data></Cell>
+    <Cell ss:Index="11" ss:Formula="=RC[-2]"><Data ss:Type="String">City</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">province</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Province</Data></Cell>
+    <Cell ss:Index="11" ss:Formula="=RC[-2]"><Data ss:Type="String">Province</Data></Cell>
+    <Cell><Data ss:Type="String">Province / State</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">country</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Country</Data></Cell>
+    <Cell ss:Index="11" ss:Formula="=RC[-2]"><Data ss:Type="String">Country</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">postalcode</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">PostalCode</Data></Cell>
+    <Cell ss:Index="11" ss:Formula="=RC[-2]"><Data ss:Type="String">PostalCode</Data></Cell>
+    <Cell><Data ss:Type="String">Postal Code / Zip</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DateTime</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">DOB</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">DOB</Data></Cell>
+    <Cell ss:Index="11" ss:Formula="=RC[-2]"><Data ss:Type="String">DOB</Data></Cell>
+    <Cell><Data ss:Type="String">Date Of Birth</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">float</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">salary</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Salary</Data></Cell>
+    <Cell ss:Index="11" ss:Formula="=RC[-2]"><Data ss:Type="String">Salary</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DateTime</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">hire_date</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">HireDate</Data></Cell>
+    <Cell ss:Index="11" ss:Formula="=RC[-2]"><Data ss:Type="String">HireDate</Data></Cell>
+    <Cell><Data ss:Type="String">Hire Date</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Sheet3">
+  <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="1" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Row ss:AutoFitHeight="0"/>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
