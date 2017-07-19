@@ -31,7 +31,7 @@ namespace DataPath.Generators
             if (!string.IsNullOrWhiteSpace(this.Path))
                 result.AppendFormat("using System;\r\n\r\nnamespace {0} {{\r\n", GetNamespace());
 
-            result.AppendFormat("public class {0}{{\r\n", string.IsNullOrWhiteSpace(this.Path) ? ContainerName : IoPath.GetFileName(this.Path));
+            result.AppendFormat("public partial class {0}{{\r\n", string.IsNullOrWhiteSpace(this.Path) ? ContainerName : IoPath.GetFileName(this.Path));
             CreateConstructor();
         }
 
