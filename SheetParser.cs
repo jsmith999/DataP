@@ -45,11 +45,12 @@ namespace DataPath {
                     else
                         index++;
 
-                    if (actionIndex < actions.Count - 1) {
-                        if (actions[actionIndex + 1].StartCol <= index) actionIndex++;
-                    }
+                    while (actionIndex < actions.Count - 1 &&
+                        actions[actionIndex + 1].StartCol <= index) actionIndex++;
 
-                    actions[actionIndex].AddValue(index - actions[actionIndex].StartCol, cell.SelectSingleNode("ss:Data", ns).InnerText);
+                    var dataCell = cell.SelectSingleNode("ss:Data", ns);
+                    if (dataCell != null)
+                        actions[actionIndex].AddValue(index - actions[actionIndex].StartCol, dataCell.InnerText);
                 }
 
                 foreach (var action in actions)
@@ -71,11 +72,17 @@ namespace DataPath {
         }
 
         private bool ReadHeaders(int index, XmlNode actionNode) {
-            var actionName = actionNode.SelectSingleNode("ss:Data", ns).InnerText;
+            var dataCell = actionNode.SelectSingleNode("ss:Data", ns);
+            if (dataCell == null) return true;    // OpenOffice functionality
+            var actionName = dataCell.InnerText;
             if (actionName == "common") actions.Add(commonDecl = new CommonDecl { StartCol = index, ContainerName = worksheetName, });
+            // table
             else if (actionName == "table") actions.Add(new TableGenerator { StartCol = index, ContainerName = worksheetName, });
+            else if (actionName == "XmlTable") actions.Add(new XmlTableGenerator { StartCol = index, ContainerName = worksheetName, });
+            // class
             else if (actionName == "dal") actions.Add(new DalGenerator { StartCol = index, ContainerName = worksheetName, });
             else if (actionName == "ui") actions.Add(new UIGenerator { StartCol = index, ContainerName = worksheetName, });
+            else if (actionName == "ServiceHandler") actions.Add(new ServiceHandlerGenerator { StartCol = index, ContainerName = worksheetName, });
             else throw new Exception("unknown generator type " + actionName);
             return true;
         }
@@ -85,7 +92,7 @@ namespace DataPath {
             foreach (XmlNode actionNode in xmlRow) {
                 var indexNode = actionNode.SelectSingleNode("@ss:Index", ns);
                 if (indexNode != null && !string.IsNullOrWhiteSpace(indexNode.InnerText))
-                    index=int.Parse(indexNode.InnerText);
+                    index = int.Parse(indexNode.InnerText);
                 else
                     index++;
 

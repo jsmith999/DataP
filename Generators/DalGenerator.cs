@@ -9,15 +9,14 @@ namespace DataPath.Generators {
 
         protected override void StartGenerate(CommonDecl common) {
             if (!string.IsNullOrWhiteSpace(this.Path))
-                result.AppendFormat(@"using System;
+                result.Append(@"using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace {0} {{
-", GetNamespace());
+namespace  Conta.DAL.Model {
+");
 
-            result.AppendFormat(@"public class {0} {{
-        public static Dictionary<int, {0}> Data = new Dictionary<int, {0}>();
+            result.AppendFormat(@"public partial class {0} {{
 ", string.IsNullOrWhiteSpace(this.Path) ? ContainerName : IoPath.GetFileName(this.Path));
             CreateConstructor();
         }

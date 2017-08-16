@@ -28,6 +28,9 @@ namespace DataPath.Generators
         #region Generate line
         protected override void GenerateLine(CommonDecl common)
         {
+            if (row.Count <= (int)Columns.Name)
+                return;     // calculated column
+
             var type = GetColumnType(common);
             //var foreignKey = GetForeignKey(common);
 
@@ -49,7 +52,9 @@ namespace DataPath.Generators
             if (typeName == "string")
             {
                 // check row[2] exists 
-                return "varchar2(" + common.FieldSize + ")";
+                return !string.IsNullOrWhiteSpace(common.FieldSize) && int.Parse(common.FieldSize) >= 65535 ? 
+                    "clob" : 
+                    ("varchar2(" + common.FieldSize + ")");
             }
             else if (typeName == "int")
             {
@@ -65,6 +70,14 @@ namespace DataPath.Generators
             else if (typeName == "float")
             {
                 return "float";     // TODO : decimals
+            }
+            else if (typeName == "bool")
+            {
+                return "bool";
+            }
+            else if (typeName == "byte[]")
+            {
+                return "blob";
             }
 
             throw new Exception("Unknown column type : " + typeName);

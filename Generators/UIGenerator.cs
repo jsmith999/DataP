@@ -1,17 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
 namespace DataPath.Generators {
     class UIGenerator : CodeGen/*, System.ComponentModel.INotifyPropertyChanged*/  {
         protected override void StartGenerate(CommonDecl common) {
-            //base.StartGenerate(common);
-            //System.ComponentModel.INotifyPropertyChanged
-            if (!string.IsNullOrWhiteSpace(this.Path))
-                result.AppendFormat("using System;\r\n\r\nnamespace {0} {{\r\n", System.IO.Path.GetDirectoryName(this.Path).Replace("\\", ".").Replace("/", "."));
 
-            result.AppendFormat("public class {0} : System.ComponentModel.INotifyPropertyChanged {{\r\n", string.IsNullOrWhiteSpace(this.Path) ? ContainerName : System.IO.Path.GetFileName(this.Path));
+            result.Append(@"using Conta.Dal;
+using Conta.DAL;
+using Conta.DAL.Model;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace Conta.Model {
+");
+
+            result.AppendFormat(@"    public partial class Ui{0} : UiBase {{
+", string.IsNullOrWhiteSpace(this.Path) ? ContainerName : System.IO.Path.GetFileName(this.Path));
             CreateConstructor();
         }
 
@@ -19,49 +28,70 @@ namespace DataPath.Generators {
             if (row.Count == 0) return;
 
             var type = common.TypeName;
+            var annotations = new StringBuilder();
             if (type == "string" && !string.IsNullOrWhiteSpace(common.FieldSize))
-                result.AppendFormat("[System.ComponentModel.DataAnnotations.StringLength({0})]\r\n", common.FieldSize);
-            if(!common.IsNullable )
-                result.Append("[System.ComponentModel.DataAnnotations.Required()]\r\n");
+                annotations.AppendFormat("[StringLength({0})]\r\n", common.FieldSize);
+            if (!common.IsNullable)
+                annotations.Append("[Required()]\r\n");
 
-            foreach (var r in (from x in row orderby x.Key descending select x )) {
+            foreach (var r in (from x in row orderby x.Key descending select x)) {
                 if (r.Key == 0) {
+                    result.Append(annotations);
                     if (string.IsNullOrWhiteSpace(common.ForeignKey)) {
-                        result.AppendFormat("public {1} {0} {{ get {{ return original.{0}; }} set {{ RaiseChanged(original.{0}, value, v => original.{0} = v, \"{0}\"); }} }}\r\n", r.Value, type);
+                        result.AppendFormat("public {1} {0} {{\r\n get {{ return original.{0}; }}\r\n set {{ SetProp(original.{0}, value, v => original.{0} = v, \"{0}\"); }}\r\n }}\r\n", r.Value, type);
                     } else {
                         var refType = GetNamespace() + "." + common.ForeignKey;
-                        //result.AppendFormat("private {1} {0}Key {{ get {{ return original.{0}Key; }} set {{ RaiseChanged(original.{0}Key, value, v => original.{0}Key = v, \"{0}Key\"); }} }}\r\n", r.Value, type);
-                        result.AppendFormat("public {1} {0} {{ get {{ return original.{0}; }} set {{ RaiseChanged(original.{0}, value, v => original.{0} = v, \"{0}\"); }} }}\r\n", row[0].Value, refType);
+                        result.AppendFormat("public {1} {0} {{\r\n get {{ return original.{0}; }}\r\n set {{ SetProp(original.{0}, value, v => original.{0} = v, \"{0}\"); }}\r\n }}\r\n", row[0].Value, refType);
                     }
+                    result.AppendLine();
                 } else if (r.Key == 1)
-                    result.AppendFormat("[System.ComponentModel.DisplayName(\"{0}\")]\r\n", r.Value);
+                    annotations.AppendFormat("[System.ComponentModel.DisplayName(\"{0}\")]\r\n", r.Value);
             }
-            
-            result.AppendLine();
+
+            //result.AppendLine();
 
             row.Clear();
         }
 
         protected override void CreateConstructor() {
-            result.AppendFormat(@"private readonly DAL.{0} original;
-public {0}(DAL.{0} original){{
-this.original = original;
-}}
+            result.AppendFormat(@"        #region Service
+        private static TheService service;
+        
+        public static IDataClientService Service {{ get {{ return service; }} }}
+        
+        public static void InitService() {{
+            if (service != null)
+                service = null; //Service.Dispose();
+            service = new TheService();
+        }}
+        #endregion
+
+        internal readonly {0} original;
+
+        public Ui{0}({0} original) :base() {{
+            this.original = original;
+        }}
+
 ", string.IsNullOrWhiteSpace(this.Path) ? ContainerName : System.IO.Path.GetFileName(this.Path));
         }
 
         protected override string GetResult() {
             var codeLen = this.result.Length;
             var baseResult = base.GetResult();
-            return baseResult.Substring(0, codeLen) + @"        // INotifyPropertyChanged
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+            return baseResult.Substring(0, codeLen) +
+                string.Format(@"        public override IDataClientService GetService() {{ return Service; }}
 
-        private void RaiseChanged<T>(T current, T newValue, Action<T> setter, string propName) {
-            if (object.Equals(current, newValue))
-                return;
-            setter(newValue);
-            if (PropertyChanged != null) PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propName));
-        }" +
+        #region service implementation
+        class TheService : BaseUiService<{0}, Ui{0}> {{
+
+            internal TheService() : base(XmlDal.DataContext.{0}s, new[] KeyValuePair<string, Type>{{ /*add forward refs here*/ }}) {{ }}
+
+            protected override {0} GetOriginal(Ui{0} item) {{ return item.original; }}
+
+            protected override Ui{0} Create({0} original) {{ return new Ui{0}(original); }}
+        }}
+        #endregion
+", string.IsNullOrWhiteSpace(this.Path) ? ContainerName : System.IO.Path.GetFileName(this.Path)) +
           baseResult.Substring(codeLen);
         }
 
@@ -69,5 +99,14 @@ this.original = original;
         //void x() {
         //    PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(""));
         //}
+        public override void Save() {
+            base.Save();
+            // Conta only:
+            var newFileName = System.IO.Path.GetDirectoryName(this.Path) + "\\Ui" + System.IO.Path.GetFileName(this.Path) + ".cs";
+            //new System.IO.FileInfo(this.Path).re
+            if (File.Exists(newFileName))
+                File.Delete(newFileName);
+            File.Move(this.Path+".cs", newFileName);
+        }
     }
 }

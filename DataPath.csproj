@@ -64,8 +64,10 @@
     <Compile Include="Generators\CodeGen.cs" />
     <Compile Include="Generators\CommonDecl.cs" />
     <Compile Include="Generators\DalGenerator.cs" />
+    <Compile Include="Generators\ServiceHandlerGenerator.cs" />
     <Compile Include="Generators\TableGenerator.cs" />
     <Compile Include="Generators\UIGenerator.cs" />
+    <Compile Include="Generators\XmlTableGenerator.cs" />
     <Compile Include="IGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
